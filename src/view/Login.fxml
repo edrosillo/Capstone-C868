@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="607.0" maxWidth="880.0" minHeight="607.0" minWidth="880.0" prefHeight="607.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#114270" height="607.0" stroke="BLACK" strokeType="INSIDE" width="880.0" />
+      <Text fx:id="titleLbl1" fill="WHITE" layoutX="155.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Droid Depot" textAlignment="CENTER" wrappingWidth="582.9697265625">
+         <font>
+            <Font name="SansSerif Bold" size="36.0" />
+         </font>
+      </Text>
+      <HBox layoutX="155.0" layoutY="126.0" prefHeight="38.0" prefWidth="575.0">
+         <children>
+            <Text fx:id="titleLbl" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointment Management System" textAlignment="CENTER" wrappingWidth="582.9697265625">
+               <font>
+                  <Font name="SansSerif Bold" size="34.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+      <VBox layoutX="220.0" layoutY="239.0" prefHeight="150.0" prefWidth="400.0">
+         <children>
+            <GridPane alignment="CENTER" prefHeight="130.0" prefWidth="580.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="341.0" minWidth="10.0" prefWidth="129.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="480.0" minWidth="10.0" prefWidth="271.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="101.0" minHeight="10.0" prefHeight="101.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="134.0" minHeight="10.0" prefHeight="99.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Text fx:id="userNameLbl" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" wrappingWidth="219.21630859375">
+                     <font>
+                        <Font name="SansSerif Regular" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="passwordLbl" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="219.21630859375" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="SansSerif Regular" size="20.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="userNameTF" prefHeight="26.0" prefWidth="225.0" GridPane.columnIndex="1" />
+                  <PasswordField fx:id="passwordTF" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" layoutX="200.0" layoutY="439.0" prefHeight="40.0" prefWidth="500.0">
+         <children>
+            <GridPane alignment="CENTER" prefHeight="40.0" prefWidth="500.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#onActionLogin" prefHeight="40.0" prefWidth="150.0" text="Login" textFill="#256614">
+                     <font>
+                        <Font name="SansSerif Regular" size="20.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="70.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="resetBtn" mnemonicParsing="false" onAction="#clearLogin" prefHeight="40.0" prefWidth="150.0" text="Reset" textFill="#922b2b" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="SansSerif Regular" size="20.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Button>
+               </children>
+            </GridPane>
+         </children>
+      </HBox>
+      <Button fx:id="exitBtn" layoutX="738.0" layoutY="538.0" mnemonicParsing="false" onAction="#onActionExit" text="Exit">
+         <font>
+            <Font name="SansSerif Regular" size="15.0" />
+         </font>
+      </Button>
+      <Text fx:id="userLocationLbl" fill="WHITE" layoutX="661.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Location" textAlignment="CENTER" wrappingWidth="170.0">
+         <font>
+            <Font name="SansSerif Regular" size="18.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

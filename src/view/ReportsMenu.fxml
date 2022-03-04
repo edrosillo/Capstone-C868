@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="720.0" maxWidth="1080.0" prefHeight="560.0" prefWidth="1014.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ReportMenuController">
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#103456" height="578.0" stroke="BLACK" strokeType="INSIDE" width="1024.0" />
+        <HBox alignment="CENTER" layoutX="590.0" layoutY="15.0" prefHeight="53.0" prefWidth="404.0" spacing="20.0">
+            <children>
+                <RadioButton mnemonicParsing="false" onAction="#goToAppointmentRB" selected="true" text="Appointment Menu" textFill="WHITE">
+                    <font>
+                        <Font name="SansSerif Regular" size="13.0" />
+                    </font>
+                    <toggleGroup>
+                        <ToggleGroup fx:id="sceneChangeTG" />
+                    </toggleGroup>
+                </RadioButton>
+                <RadioButton mnemonicParsing="false" onAction="#goToCustomerRB" text="Customer Menu" textFill="WHITE" toggleGroup="$sceneChangeTG">
+                    <font>
+                        <Font name="SansSerif Regular" size="13.0" />
+                    </font>
+                </RadioButton>
+                <RadioButton mnemonicParsing="false" selected="true" text="Reports Menu" textFill="WHITE" toggleGroup="$sceneChangeTG">
+                    <font>
+                        <Font name="SansSerif Regular" size="13.0" />
+                    </font>
+                </RadioButton>
+            </children>
+        </HBox>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d8d8d8" height="400.0" layoutX="62.0" layoutY="95.0" stroke="BLACK" strokeType="INSIDE" width="900.0" />
+        <TabPane layoutX="62.0" layoutY="91.0" prefHeight="400.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab fx:id="totalApptsTab" onSelectionChanged="#addTypeMonthTotalAppointments" text="Total Appointments">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="878.0">
+                            <children>
+                                <TableView fx:id="appointmentsByTypeTable" layoutX="110.0" layoutY="20.0" prefHeight="330.0" prefWidth="300.0">
+                                    <columns>
+                                        <TableColumn fx:id="totApptsTypeCol" prefWidth="161.0" text="Appointment Type" />
+                                        <TableColumn fx:id="totApptsTotalCol" prefWidth="138.0" text="Total" />
+                                    </columns>
+                                </TableView>
+                                <TableView fx:id="appointmentsByMonthTable" layoutX="499.0" layoutY="20.0" prefHeight="330.0" prefWidth="300.0">
+                                    <columns>
+                                        <TableColumn fx:id="apptsByMonMonthCol" prefWidth="181.0" text="Appointments by Month" />
+                                        <TableColumn fx:id="apptsByMonTotalCol" prefWidth="118.0" text="Total" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="appointmentsByContactTab" onSelectionChanged="#addAppointmentsByContact" text="Appointments by Contact">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="appointmentsByContactTable" layoutX="10.0" layoutY="41.0" prefHeight="320.0" prefWidth="880.0">
+                                    <columns>
+                                        <TableColumn fx:id="apptsByContactIDCol" prefWidth="95.0" text="Appointment ID" />
+                                        <TableColumn fx:id="apptsByContactTitleCol" prefWidth="187.0" text="Title" />
+                                        <TableColumn fx:id="apptsByContactTypeCol" prefWidth="115.0" text="Type" />
+                                        <TableColumn fx:id="apptsByContactDescriptionCol" prefWidth="175.0" text="Description" />
+                                        <TableColumn fx:id="apptsByContactStartCol" prefWidth="115.0" text="Start" />
+                                        <TableColumn fx:id="apptsByContactEndCol" prefWidth="115.0" text="End" />
+                                        <TableColumn fx:id="apptsByContactCustomerIDCol" prefWidth="77.0" text="Customer ID" />
+                                    </columns>
+                                </TableView>
+                                <ComboBox fx:id="contactSelectCB" focusTraversable="false" layoutX="70.0" layoutY="8.0" onAction="#addContactAppointmentData" prefWidth="150.0" promptText="Select Contact" />
+                                <Label fx:id="contactText" layoutX="14.0" layoutY="13.0" text="Contact:">
+                                    <font>
+                                        <Font name="SansSerif Regular" size="14.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="customerDivisionTab" onSelectionChanged="#addCustomersByDivision" text="Customers by Division">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="customerDivisionTable" layoutX="20.0" layoutY="20.0" prefHeight="330.0" prefWidth="860.0">
+                                    <columns>
+                                        <TableColumn fx:id="custbyDivDivisionCol" prefWidth="300.0" text="Division" />
+                                        <TableColumn fx:id="custbyDivCustomersCol" prefWidth="558.0" text="Customer" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+        <Text fill="WHITE" layoutX="36.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reports">
+            <font>
+                <Font name="SansSerif Bold" size="35.0" />
+            </font>
+        </Text>
+    </children>
+</AnchorPane>

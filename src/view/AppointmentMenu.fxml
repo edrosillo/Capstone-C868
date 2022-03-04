@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="720.0" maxWidth="1080.0" prefHeight="560.0" prefWidth="1014.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AppointmentMenuController">
+      <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#103456" height="568.0" stroke="BLACK" strokeType="INSIDE" width="1014.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d8d8d8" height="225.0" layoutX="25.0" layoutY="90.0" stroke="BLACK" strokeType="INSIDE" width="965.0" />
+      <HBox alignment="CENTER" layoutX="580.0" layoutY="5.0" prefHeight="53.0" prefWidth="404.0" spacing="20.0">
+         <children>
+                <RadioButton mnemonicParsing="false" selected="true" text="Appointment Menu" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="sceneChangeTG" />
+               </toggleGroup>
+            </RadioButton>
+                <RadioButton mnemonicParsing="false" onAction="#goToCustomerRB" text="Customer Menu" textFill="WHITE" toggleGroup="$sceneChangeTG">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font>
+            </RadioButton>
+                <RadioButton mnemonicParsing="false" onAction="#goToReportsRB" text="Reports Menu" textFill="WHITE" toggleGroup="$sceneChangeTG">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font>
+            </RadioButton>
+         </children>
+      </HBox>
+      <VBox alignment="TOP_CENTER" layoutX="800.0" layoutY="354.0" prefHeight="175.0" prefWidth="181.0" spacing="15.0">
+         <children>
+                <Label alignment="CENTER" prefHeight="21.0" prefWidth="149.0" text="Options" textFill="WHITE">
+                    <font>
+                        <Font name="SansSerif Regular" size="17.0" />
+                    </font>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+                </Label>
+                <Button fx:id="saveAppointmentBtn" focusTraversable="false" mnemonicParsing="false" onAction="#onActionSaveAppointment" prefHeight="25.0" prefWidth="149.0" text="Save Appointment">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font>
+            </Button>
+                <Button fx:id="modifyAppointmentBtn" focusTraversable="false" mnemonicParsing="false" onAction="#onActionModifyAppointment" prefHeight="25.0" prefWidth="149.0" text="Modify Appointment">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font>
+            </Button>
+                <Button fx:id="deleteAppointmentBtn" focusTraversable="false" mnemonicParsing="false" onAction="#onActionDeleteAppointment" prefHeight="25.0" prefWidth="149.0" text="Delete Appointment">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <GridPane layoutX="45.0" layoutY="370.0" prefHeight="175.0" prefWidth="703.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="211.0" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.0" minWidth="10.0" prefWidth="200.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="244.0" minWidth="10.0" prefWidth="128.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" prefWidth="200.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+                <TextField fx:id="appointmentIDTF" disable="true" focusTraversable="false" prefHeight="25.0" prefWidth="213.0" promptText="AUTOGEN" GridPane.columnIndex="1">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font>
+            </TextField>
+                <Label text="Appointment ID:" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Regular" size="14.0" />
+               </font>
+            </Label>
+                <Label text="Type:" textFill="WHITE" GridPane.columnIndex="2">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <font>
+                  <Font name="SansSerif Regular" size="14.0" />
+               </font>
+            </Label>
+                <TextField fx:id="appointmentTypeTF" focusTraversable="false" prefHeight="25.0" prefWidth="213.0" promptText="Type" GridPane.columnIndex="3">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font>
+            </TextField>
+                <Label text="Title:" textFill="WHITE" GridPane.rowIndex="1">
+               <font>
+                  <Font name="SansSerif Regular" size="14.0" />
+               </font>
+            </Label>
+                <TextField fx:id="appointmentTitleTF" focusTraversable="false" prefHeight="25.0" prefWidth="213.0" promptText="Title" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font>
+            </TextField>
+                <Label text="Start Date and Time:" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <font>
+                  <Font name="SansSerif Regular" size="14.0" />
+               </font>
+            </Label>
+                <Label text="Description:" textFill="WHITE" GridPane.rowIndex="2">
+               <font>
+                  <Font name="SansSerif Regular" size="14.0" />
+               </font>
+            </Label>
+                <TextField fx:id="appointmentDescriptionTF" focusTraversable="false" prefHeight="25.0" prefWidth="213.0" promptText="Description" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font>
+            </TextField>
+                <Label text="Location:" textFill="WHITE" GridPane.rowIndex="3">
+               <font>
+                  <Font name="SansSerif Regular" size="14.0" />
+               </font>
+            </Label>
+                <Label text="Contact:" textFill="WHITE" GridPane.rowIndex="4">
+               <font>
+                  <Font name="SansSerif Regular" size="14.0" />
+               </font>
+            </Label>
+                <Label text="User ID:" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <font>
+                  <Font name="SansSerif Regular" size="14.0" />
+               </font>
+            </Label>
+                <Label text="Customer ID:" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <font>
+                  <Font name="SansSerif Regular" size="14.0" />
+               </font>
+            </Label>
+                <TextField fx:id="appointmentUserIDTF" focusTraversable="false" prefHeight="25.0" prefWidth="213.0" promptText="User ID" GridPane.columnIndex="3" GridPane.rowIndex="4">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font>
+            </TextField>
+                <TextField fx:id="appointmentCustomerIDTF" focusTraversable="false" prefHeight="25.0" prefWidth="213.0" promptText="Customer ID" GridPane.columnIndex="3" GridPane.rowIndex="3">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font>
+            </TextField>
+                <TextField fx:id="appointmentLocationTF" focusTraversable="false" prefHeight="25.0" prefWidth="213.0" promptText="Location" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font>
+            </TextField>
+                <Label text="End Date and Time:" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <font>
+                  <Font name="SansSerif Regular" size="14.0" />
+               </font>
+            </Label>
+                <ComboBox fx:id="appointmentContactCB" focusTraversable="false" prefHeight="25.0" prefWidth="213.0" promptText="Select Contact" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <DatePicker fx:id="appointmentStartDP" prefHeight="25.0" prefWidth="103.0" promptText="Date" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                <DatePicker fx:id="appointmentEndDP" prefHeight="25.0" prefWidth="103.0" promptText="Date" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                <ComboBox fx:id="appointmentStartCB" prefHeight="25.0" prefWidth="103.0" promptText="Time" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="120.0" />
+               </GridPane.margin>
+            </ComboBox>
+                <ComboBox fx:id="appointmentEndCB" prefHeight="25.0" prefWidth="103.0" promptText="Time" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="120.0" />
+               </GridPane.margin>
+            </ComboBox>
+         </children>
+      </GridPane>
+          <TabPane layoutX="26.0" layoutY="95.0" prefHeight="225.0" prefWidth="963.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                  <Tab fx:id="apptAllTableTab" text="All">
+                      <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="194.0" prefWidth="970.0">
+                              <children>
+                                  <TableView fx:id="apptAllTable" layoutX="4.0" onMouseClicked="#addAppointmentDataToBoxes" prefHeight="182.0" prefWidth="955.0">
+                                      <columns>
+                                          <TableColumn fx:id="apptAllAppointmentIDCol" prefWidth="98.0" text="Appointment ID" />
+                                          <TableColumn fx:id="apptAllTitleCol" prefWidth="90.0" text="Title" />
+                                          <TableColumn fx:id="apptAllDescriptionCol" prefWidth="147.0" text="Description" />
+                                          <TableColumn fx:id="apptAllLocationCol" prefWidth="93.0" text="Location" />
+                                          <TableColumn fx:id="apptAllContactCol" prefWidth="92.0" text="Contact" />
+                                          <TableColumn fx:id="apptAllTypeCol" prefWidth="71.0" text="Type" />
+                                          <TableColumn fx:id="apptAllStartDATCol" prefWidth="140.0" text="Start Date and Time" />
+                                          <TableColumn fx:id="apptAllEndDATCol" prefWidth="140.0" text="End Date and Time" />
+                                          <TableColumn fx:id="apptAllCustomerIDCol" prefWidth="86.0" text="Customer ID" />
+                              <TableColumn fx:id="apptAllUserIDCol" prefWidth="86.0" text="User ID" />
+                                      </columns>
+                                  </TableView>
+                              </children>
+                          </AnchorPane>
+                      </content>
+                  </Tab>
+                  <Tab fx:id="apptMonthTableTab" text="Month">
+                      <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <children>
+                                  <TableView fx:id="apptMonthTable" focusTraversable="false" layoutX="4.0" onMouseClicked="#addAppointmentDataToBoxes" prefHeight="181.0" prefWidth="963.0">
+                                      <columns>
+                                          <TableColumn fx:id="apptMonthAppointmentIDCol" prefWidth="98.0" text="Appointment ID" />
+                                          <TableColumn fx:id="apptMonthTitleCol" prefWidth="90.0" text="Title" />
+                                          <TableColumn fx:id="apptMonthDescriptionCol" prefWidth="147.0" text="Description" />
+                                          <TableColumn fx:id="apptMonthLocationCol" prefWidth="93.0" text="Location" />
+                                          <TableColumn fx:id="apptMonthContactCol" prefWidth="92.0" text="Contact" />
+                                          <TableColumn fx:id="apptMonthTypeCol" prefWidth="71.0" text="Type" />
+                                          <TableColumn fx:id="apptMonthStartDATCol" prefWidth="140.0" text="Start Date and Time" />
+                                          <TableColumn fx:id="apptMonthEndDATCol" prefWidth="140.0" text="End Date and Time" />
+                                          <TableColumn fx:id="apptMonthCustomerIDCol" prefWidth="86.0" text="Customer ID" />
+                              <TableColumn fx:id="apptMonthUserIDCol" prefWidth="86.0" text="User ID" />
+                                      </columns>
+                                  </TableView>
+                              </children>
+                          </AnchorPane>
+                      </content>
+                  </Tab>
+                  <Tab fx:id="apptWeekTableTab" text="Week">
+                      <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <children>
+                                  <TableView fx:id="apptWeekTable" layoutX="4.0" onMouseClicked="#addAppointmentDataToBoxes" prefHeight="182.0" prefWidth="963.0">
+                                      <columns>
+                                          <TableColumn fx:id="apptWeekAppointmentIDCol" prefWidth="98.0" text="Appointment ID" />
+                                          <TableColumn fx:id="apptWeekTitleCol" prefWidth="90.0" text="Title" />
+                                          <TableColumn fx:id="apptWeekDescriptionCol" prefWidth="147.0" text="Description" />
+                                          <TableColumn fx:id="apptWeekLocationCol" prefWidth="93.0" text="Location" />
+                                          <TableColumn fx:id="apptWeekContactCol" prefWidth="92.0" text="Contact" />
+                                          <TableColumn fx:id="apptWeekTypeCol" prefWidth="71.0" text="Type" />
+                                          <TableColumn fx:id="apptWeekStartDATCol" prefWidth="140.0" text="Start Date and Time" />
+                                          <TableColumn fx:id="apptWeekEndDATCol" prefWidth="140.0" text="End Date and Time" />
+                                          <TableColumn fx:id="apptWeekCustomerIDCol" prefWidth="86.0" text="Customer ID" />
+                              <TableColumn fx:id="apptWeekUserIDCol" prefWidth="86.0" text="User ID" />
+                                      </columns>
+                                  </TableView>
+                              </children>
+                          </AnchorPane>
+                      </content>
+                  </Tab>
+              </tabs>
+          </TabPane>
+          <Label layoutX="303.0" layoutY="335.0" text="Appointment Information" textFill="WHITE">
+              <font>
+                  <Font name="SansSerif Regular" size="18.0" />
+              </font>
+          </Label>
+      <Text fill="WHITE" layoutX="26.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointments">
+         <font>
+            <Font name="SansSerif Bold" size="35.0" />
+         </font>
+      </Text>
+      <TextField layoutX="756.0" layoutY="51.0" prefHeight="26.0" prefWidth="225.0" promptText="Search by ID or Title" />
+      <Text fill="WHITE" layoutX="696.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search:">
+         <font>
+            <Font name="SansSerif Regular" size="15.0" />
+         </font>
+      </Text>
+      </children>
+  </AnchorPane>

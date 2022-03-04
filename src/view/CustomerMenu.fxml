@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="560.0" prefWidth="1014.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerMenuController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#103456" height="571.0" stroke="BLACK" strokeType="INSIDE" width="1014.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d8d8d8" height="241.0" layoutX="73.0" layoutY="74.0" stroke="BLACK" strokeType="INSIDE" width="868.0" />
+      <Text fill="WHITE" layoutX="36.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customers">
+         <font>
+            <Font name="SansSerif Bold" size="35.0" />
+         </font>
+      </Text>
+      <TableView fx:id="customerTable" focusTraversable="false" layoutX="82.0" layoutY="83.0" onMouseClicked="#addCustomerDataToFields" prefHeight="220.0" prefWidth="850.0">
+         <columns>
+            <TableColumn fx:id="customerIDCol" prefWidth="58.0" text="ID" />
+            <TableColumn fx:id="customerNameCol" prefWidth="212.0" text="Name" />
+            <TableColumn fx:id="customerAddressCol" prefWidth="268.0" text="Address" />
+            <TableColumn fx:id="customerDivisionCol" prefWidth="68.0" text="Division ID" />
+            <TableColumn fx:id="customerPostalCodeCol" prefWidth="85.0" text="Postal Code" />
+            <TableColumn fx:id="customerPhoneCol" prefWidth="158.0" text="Phone" />
+         </columns>
+      </TableView>
+      <VBox alignment="TOP_CENTER" layoutX="754.0" layoutY="342.0" prefHeight="209.0" prefWidth="174.0" spacing="15.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="21.0" prefWidth="149.0" text="Options" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Regular" size="17.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </Label>
+            <Button fx:id="saveCustomerBtn" focusTraversable="false" mnemonicParsing="false" onAction="#onActionSaveCustomer" prefHeight="25.0" prefWidth="149.0" text="Save Customer">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font></Button>
+            <Button fx:id="modifyCustomerBtn" mnemonicParsing="false" onAction="#onActionModifyCustomer" prefHeight="25.0" prefWidth="149.0" text="Modify Customer">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font></Button>
+            <Button fx:id="deleteCustomerBtn" mnemonicParsing="false" onAction="#deleteCustomer" prefHeight="25.0" prefWidth="149.0" text="Delete Customer">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font></Button>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" layoutX="590.0" layoutY="15.0" prefHeight="53.0" prefWidth="404.0" spacing="20.0">
+         <children>
+            <RadioButton mnemonicParsing="false" onAction="#goToAppointmentRB" selected="true" text="Appointment Menu" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="sceneChangeTG" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton mnemonicParsing="false" selected="true" text="Customer Menu" textFill="WHITE" toggleGroup="$sceneChangeTG">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font>
+            </RadioButton>
+            <RadioButton mnemonicParsing="false" onAction="#goToReportsRB" text="Reports Menu" textFill="WHITE" toggleGroup="$sceneChangeTG">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font>
+            </RadioButton>
+         </children>
+      </HBox>
+      <Label layoutX="284.0" layoutY="331.0" text="Customer Information" textFill="WHITE">
+         <font>
+            <Font name="SansSerif Regular" size="18.0" />
+         </font>
+      </Label>
+      <GridPane layoutX="73.0" layoutY="355.0" prefHeight="193.0" prefWidth="596.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.0" minWidth="10.0" prefWidth="105.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="160.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="105.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="160.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label text="Customer ID:" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font>
+            </Label>
+            <Label text="Name: " textFill="WHITE" GridPane.rowIndex="1">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font>
+            </Label>
+            <Label text="Address:" textFill="WHITE" GridPane.rowIndex="2">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font>
+            </Label>
+            <Label text="Country:" textFill="WHITE" GridPane.rowIndex="3">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font>
+            </Label>
+            <Label text="Division:" textFill="WHITE" GridPane.rowIndex="4">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="customerIDTF" disable="true" focusTraversable="false" prefHeight="25.0" prefWidth="160.0" promptText="AUTOGEN" GridPane.columnIndex="1" />
+            <TextField fx:id="customerNameTF" focusTraversable="false" prefHeight="25.0" prefWidth="160.0" promptText="Name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="customerAddressTF" focusTraversable="false" prefHeight="25.0" prefWidth="160.0" promptText="Address" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ComboBox fx:id="customerCountryCB" focusTraversable="false" onAction="#filterDivisionCB" prefHeight="25.0" prefWidth="170.0" promptText="Country" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ComboBox fx:id="customerDivisionCB" focusTraversable="false" prefHeight="25.0" prefWidth="170.0" promptText="Division" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="Postal Code:" textFill="WHITE" GridPane.columnIndex="2">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="15.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Phone Number:" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="customerPostalCodeTF" focusTraversable="false" prefHeight="25.0" prefWidth="160.0" promptText="Postal Code" GridPane.columnIndex="3" />
+            <TextField fx:id="customerPhoneNumberTF" focusTraversable="false" prefHeight="25.0" prefWidth="160.0" promptText="Phone Number" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
