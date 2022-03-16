@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public abstract class CustomersQuery {
+    public static boolean customersFound;
 
     /**
      * Pulls all Customers data from database using a Select statement.
@@ -64,6 +65,45 @@ public abstract class CustomersQuery {
         return customersObservableList;
     }
 
+
+    public static ObservableList<Customer> searchCustomerList = FXCollections.observableArrayList();
+
+    /** Searches through customer table based on a user entered search query and stores the results in an ObservableList.
+     * @param searchQuery
+     * @return
+     */
+    public static ObservableList<Customer> searchCustomers(String searchQuery) throws SQLException {
+        ObservableList<Customer> allCustomers = getAllCustomers();
+        clearSearchedCustomerList();
+
+        for (Customer customer : allCustomers) {
+            if (customer.getCustomerName().contains(searchQuery) ||
+                    customer.getAddress().contains(searchQuery) ||
+                    customer.getPostalCode().contains(searchQuery) ||
+                    customer.getPhone().contains(searchQuery)){
+                searchCustomerList.add(customer);
+                System.out.println("Customer information found");
+            }
+        }
+
+        if (searchCustomerList.isEmpty()) {
+            customersFound = false;
+            return allCustomers;
+        } else {
+            customersFound = true;
+            return searchCustomerList;
+        }
+    }
+
+
+    /** Empties the searchedCustomerList.
+     * @return
+     */
+    public static ObservableList<Customer> clearSearchedCustomerList() {
+        searchCustomerList.removeAll(searchCustomerList);
+
+        return searchCustomerList;
+    }
 
 
 }

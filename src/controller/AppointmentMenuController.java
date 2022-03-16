@@ -167,6 +167,20 @@ public class AppointmentMenuController implements Initializable {
     public TableColumn<Appointment, Integer> apptWeekCustomerIDCol;
     @FXML
     public TableColumn<Appointment, Integer> apptWeekUserIDCol;
+    @FXML
+    private TextField appointmentSearchTF;
+
+    /**
+     * Event Handler that initiates the search of appointment information
+     * based on user entered text.
+     */
+
+    @FXML
+    void onActionSearchAppointments(ActionEvent event) throws SQLException {
+        System.out.println("Appointment search initiated");
+        String searchQuery = appointmentSearchTF.getText();
+        apptAllTable.setItems(AppointmentQuery.searchAppointments(searchQuery));
+    }
 
 
     /**

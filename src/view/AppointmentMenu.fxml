@@ -285,7 +285,10 @@
             <Font name="SansSerif Bold" size="35.0" />
          </font>
       </Text>
-      <TextField layoutX="756.0" layoutY="51.0" prefHeight="26.0" prefWidth="225.0" promptText="Search by ID or Title" />
+      <TextField fx:id="appointmentSearchTF" layoutX="756.0" layoutY="51.0" onAction="#onActionSearchAppointments" prefHeight="26.0" prefWidth="225.0" promptText="Search by Title, Description or Location">
+         <font>
+            <Font name="SansSerif Regular" size="13.0" />
+         </font></TextField>
       <Text fill="WHITE" layoutX="696.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search:">
          <font>
             <Font name="SansSerif Regular" size="15.0" />

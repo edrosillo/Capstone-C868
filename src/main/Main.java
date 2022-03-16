@@ -31,7 +31,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));
         root.setStyle("-fx-font-family: 'SansSerif';");
-        primaryStage.setTitle("Appointment Management System");
+        primaryStage.setTitle("Droid Depot Appointment Management System");
         primaryStage.setScene(new Scene(root, 880, 607));
         primaryStage.show();
     }

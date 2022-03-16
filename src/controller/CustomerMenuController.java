@@ -89,6 +89,21 @@ public class CustomerMenuController implements Initializable {
     @FXML
     private TextField customerPhoneNumberTF;
 
+    @FXML
+    private TextField customerSearchTF;
+
+    /**
+     * Event Handler that initiates the search of customer information
+     * based on user entered text.
+     */
+
+    @FXML
+    void onActionSearchCustomers(ActionEvent event) throws SQLException {
+        System.out.println("Customer search initiated");
+        String searchQuery =customerSearchTF.getText();
+        customerTable.setItems(CustomersQuery.searchCustomers(searchQuery));
+    }
+
     /**
      * Integer variable used with lambda #2
      */
@@ -509,36 +524,4 @@ public class CustomerMenuController implements Initializable {
                 modified.printStackTrace();}});
     }
 }
-
-/*    @FXML
-    void onActionSaveCustomer(ActionEvent event) throws  IOException{
-
-        try {
-            String name = customerNameTxt.getText();
-            String address = customerAddressTxt.getText();
-            String postalCode = customerPCTxt.getText();
-            String phone = customerPhoneTxt.getText();
-            //Gets Division selected from Combobox
-            Division division = customerDivisionCB.getSelectionModel().getSelectedItem();
-            //Gets just the ID for the division
-            int divId = division.getDivisionID();
-
-            if (name.isEmpty()){
-                displayAlert(2);
-            } else {
-                    int rowsAffected = CustomersQuery.insert(name, address, postalCode, phone);
-                    if (rowsAffected > 0 ) {
-                        Customer customer = new Customer(CustomersQuery.getMaxID(), name, address, postalCode, phone, divId);
-                        ListManager.addCustomer(customer);
-                        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-                        scene = FXMLLoader.load(getClass().getResource("/view/main.fxml"));
-                        scene.setStyle("-fx-font-family: 'SansSerif';");
-                        stage.setScene(new Scene(scene));
-                        stage.show();
-                    }
-                }
-            } catch (Exception e) {
-            displayAlert(1);
-        }
-    }*/
 

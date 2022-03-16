@@ -25,6 +25,10 @@ public class Customer {
      * Division ID (FK)
      */
     public int divisionID;
+    /**
+     * Division Name
+     */
+    public String division;
 
 
     /**
@@ -43,6 +47,15 @@ public class Customer {
         this.postalCode = postalCode;
         this.phone = phone;
         this.divisionID = divisionID;
+    }
+
+    public Customer(int customerID, String customerName, String address, String postalCode, String phone, String division) {
+        this.customerID = customerID;
+        this.customerName = customerName;
+        this.address = address;
+        this.postalCode = postalCode;
+        this.phone = phone;
+        this.division = division;
     }
 
     /**
@@ -77,4 +90,8 @@ public class Customer {
      * @return divisionID
      */
     public int getDivisionID() { return divisionID; }
+    /**
+     * @return division
+     */
+    public String getDivision() { return division; }
 }

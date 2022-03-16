@@ -44,5 +44,41 @@ public abstract class AppointmentQuery {
         return appointmentsObservableList;
     }
 
+    private static ObservableList<Appointment> searchAppointmentList = FXCollections.observableArrayList();
+
+    /** Searches appointments table in database based on user entered query and result is stored in an ObservableList.
+     * @param searchQuery
+     * @return
+     */
+    public static ObservableList<Appointment> searchAppointments(String searchQuery) throws SQLException {
+        ObservableList<Appointment> allAppointments = getAllAppointments();
+        clearSearchedAppointmentList();
+
+        for (Appointment appointment : getAllAppointments()) {
+            if (appointment.getAppointmentTitle().contains(searchQuery) ||
+                    appointment.getAppointmentDescription().contains(searchQuery) ||
+                    appointment.getAppointmentLocation().contains(searchQuery) ||
+                    appointment.getAppointmentType().contains(searchQuery)) {
+                searchAppointmentList.add(appointment);
+                System.out.println("Appointment information found");
+            }
+        }
+
+        if (searchAppointmentList.isEmpty()) {
+            return allAppointments;
+        } else {
+            return searchAppointmentList;
+        }
+    }
+
+    /** Empties searchAppointmentList.
+     * @return
+     */
+    public static ObservableList<Appointment> clearSearchedAppointmentList() {
+        searchAppointmentList.removeAll(searchAppointmentList);
+
+        return searchAppointmentList;
+    }
+
 
 }
